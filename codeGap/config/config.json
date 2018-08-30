@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "DB_PASS",
+    "database": "code-gap",
     "host": "localhost",
     "dialect": "mysql"
   },
