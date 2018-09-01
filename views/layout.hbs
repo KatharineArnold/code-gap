@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+    <link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css' />
+    <script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="w3-bar w3-border w3-light-grey" role="navigation">
+        <div class="w3-bar-item w3-text-grey">some stuff</div>
+        <a href="/" class="w3-bar-item w3-button"> Home</a>
+
+
+
+        {{#if loggedIn}}
+            <a href="/user" class="w3-bar-item w3-button">Profile</a>
+            <a id="qsLogoutBtn" href="/logout" class="w3-bar-item w3-button"> Logout</a>
+        {{else}}
+            <a id="qsLoginBtn" href="/login" class="w3-bar-item w3-button">Login</a>
+        {{/if}}
+
+
+
+
+    </nav>
+    {{{body}}}
+</body>
+
+</html>
