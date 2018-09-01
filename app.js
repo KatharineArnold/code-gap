@@ -1,45 +1,19 @@
-require("dotenv").config();
-var express = require('express');
-var exphbs = require("express-handlebars");
-var db = require("./models");
-var app = express();
-var PORT = process.env.PORT || 3000;
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
-let session = require('express-session');
-let dotenv = require('dotenv');
-let passport = require('passport');
-let Auth0Strategy = require('passport-auth0');
-let flash = require('connect-flash');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const dotenv = require('dotenv');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const flash = require('connect-flash');
 
 dotenv.load();
 
-
-
-
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
-
 const routes = require('./routes/index');
 const user = require('./routes/user');
-
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(
@@ -69,21 +43,11 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
-var syncOptions = { force: false };
+const app = express();
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-db.sequelize.sync({ force: true }).then(function () {
-  app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
-  });
-});
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -103,7 +67,6 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(flash());
-
 
 // Handle auth failure error messages
 app.use(function (req, res, next) {
@@ -160,4 +123,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
