@@ -4,9 +4,14 @@
  * Module dependencies.
  */
 
+
+
 var app = require('../app');
 var debug = require('debug')('nodejs-regular-webapp2:server');
 var http = require('http');
+
+// Requiring our models for syncing
+var db = require("../models");
 
 /**
  * Get port from environment and store in Express.
@@ -25,9 +30,18 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: false }).then(function () {
+  // app.listen(PORT, function () {
+  //   console.log("App listening on PORT " + PORT);
+  // });
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+});
+
+
 
 /**
  * Normalize a port into a number, string, or false.
@@ -89,3 +103,5 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
 }
+
+

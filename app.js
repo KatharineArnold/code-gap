@@ -12,6 +12,10 @@ const flash = require('connect-flash');
 
 dotenv.load();
 
+
+
+
+
 // require("./routes/api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 
@@ -22,7 +26,6 @@ const volunteer = require('./routes/volunteer');
 const nonProfit = require('./routes/nonProfit');
 const profile = require('./routes/profile');
 const createProfile = require('./routes/create-profile');
-const apiRoutes = require('./routes/apiRoutes');
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(
@@ -105,7 +108,6 @@ app.use('/volunteer', volunteer);
 app.use('/non-profit', nonProfit);
 app.use('/profile', profile);
 app.use('/create-profile', createProfile);
-app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -137,5 +139,7 @@ app.use(function (err, req, res, next) {
     error: {}
   });
 });
+
+
 
 module.exports = app;
