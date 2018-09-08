@@ -5,7 +5,6 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                notNull: true
             }
         },
         email: {
@@ -14,7 +13,6 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 isEmail: true,
                 notEmpty: true,
-                notNull: true
             }
         },
         image: {

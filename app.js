@@ -24,8 +24,9 @@ const routes = require('./routes/index');
 const user = require('./routes/user');
 const volunteer = require('./routes/volunteer');
 const nonProfit = require('./routes/nonProfit');
-const profile = require('./routes/profile');
 const createProfile = require('./routes/create-profile');
+
+const db = require('./models');
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(
@@ -47,8 +48,19 @@ const strategy = new Auth0Strategy(
 passport.use(strategy);
 
 // you can use this section to keep a smaller payload
+// passport.serializeUser(function (user, done) {
+//   done(null, user);
+// });
+
 passport.serializeUser(function (user, done) {
-  done(null, user);
+  if (!user.id) {
+    db.User.findOne({ where: { email: user._json.email } }).then(dbUser => {
+      if (dbUser) {
+        user.id = dbUser.id;
+      }
+      done(null, user);
+    });
+  }
 });
 
 passport.deserializeUser(function (user, done) {
@@ -69,6 +81,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
+    //TODO: Make this a real secret
     secret: 'shhhhhhhhh',
     resave: true,
     saveUninitialized: true
@@ -106,7 +119,6 @@ app.use('/', routes);
 app.use('/user', user);
 app.use('/volunteer', volunteer);
 app.use('/non-profit', nonProfit);
-app.use('/profile', profile);
 app.use('/create-profile', createProfile);
 
 // catch 404 and forward to error handler

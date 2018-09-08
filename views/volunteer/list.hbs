@@ -1,8 +1,10 @@
 <h1>Hello, Volunteers</h1>
 
-<ul>
+<ul class="volunteersListHead">
     {{#each volunteers}}
         <li>
+            <p>Name: {{this.User.name}}</p>
+            <p>Email: {{this.User.email}}</p>
             <p>Location: {{this.location}}</p>
             <p>Availability: {{this.availability}} hours per week</p>
         </li>
