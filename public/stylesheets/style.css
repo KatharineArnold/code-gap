@@ -126,3 +126,9 @@ body{
 .listHowItWorks{
     margin-top: 40px;
 }
+
+
+.addOrgBtn{
+    margin-bottom: 20px;
+    margin-top: -40px;
+}

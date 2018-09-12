@@ -36,8 +36,19 @@ router.get('/show/:id', function (req, res, next) {
 router.get('/list', function (req, res, next) {
     // get all from db
     db.NonProfitProfile.findAll({
+        include: [{ model: db.Project }, { model: db.User }]
     }).then(function (dbNonProfitProfiles) {
-        res.render('nonProfit/list', { nonProfitProfiles: dbNonProfitProfiles });
+        //adding counts to non profit profiles
+        let orgViewModel = dbNonProfitProfiles.map(function (org) {
+            return {
+                id: org.id,
+                companyName: org.companyName,
+                description: org.description,
+                memberCount: org.Users.length,
+                projectCount: org.Projects.length
+            }
+        });
+        res.render('nonProfit/list', { nonProfitProfiles: orgViewModel });
     });
 });
 
@@ -49,7 +60,6 @@ router.get('/create', ensureLoggedIn, function (req, res, next) {
 //submitting new organization profile
 router.post('/create', ensureLoggedIn, function (req, res, next) {
     //Look up userId from email
-    // db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
     const nonProfitProfileData = {
         // UserId: user.id,
         companyName: req.body.companyName,
