@@ -7,6 +7,7 @@ const express = require('express');
 const router = express.Router();
 // var path = require("path");
 const db = require('../models');
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 
 // ===============================================================================
@@ -25,18 +26,19 @@ router.get('/list', function (req, res, next) {
     db.VolunteerProfile.findAll({
         include: [{ model: db.User }]
     }).then(function (dbVolunteerProfiles) {
+        console.log(dbVolunteerProfiles);
         res.render('volunteer/list', { volunteers: dbVolunteerProfiles });
     });
 });
 
 //get the form
-router.get('/create', function (req, res, next) {
+router.get('/create', ensureLoggedIn, function (req, res, next) {
     console.log('[create]', req.user);
     res.render('volunteer/create-volunteer', {});
 });
 
 //submitting new volunteer profile
-router.post('/create', function (req, res, next) {
+router.post('/create', ensureLoggedIn, function (req, res, next) {
     //Look up userId from email
     db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
         const profileData = {
@@ -50,5 +52,31 @@ router.post('/create', function (req, res, next) {
     });
 });
 
+
+// DELETE route for deleting volunteers
+router.delete("/list/:id", ensureLoggedIn, function (req, res) {
+    db.VolunteerProfile.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(function (dbVolunteerProfile) {
+            res.json(dbVolunteerProfile);
+        });
+});
+
+// PUT route for updating volunteers
+router.put("/list", ensureLoggedIn, function (req, res) {
+    db.VolunteerProfile.update({
+        location: req.body.location,
+        availability: req.body.hours
+    }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function (dbVolunteerProfile) {
+            res.json(dbVolunteerProfile);
+        });
+});
 
 module.exports = router;

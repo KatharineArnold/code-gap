@@ -19,12 +19,13 @@ dotenv.load();
 // require("./routes/api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 
-
+//importing routers from route files
 const routes = require('./routes/index');
 const user = require('./routes/user');
 const volunteer = require('./routes/volunteer');
 const nonProfit = require('./routes/nonProfit');
 const createProfile = require('./routes/create-profile');
+const projects = require('./routes/projects');
 
 const db = require('./models');
 
@@ -52,6 +53,9 @@ passport.use(strategy);
 //   done(null, user);
 // });
 
+
+
+//if user exists 
 passport.serializeUser(function (user, done) {
   if (!user.id) {
     db.User.findOne({ where: { email: user._json.email } }).then(dbUser => {
@@ -114,12 +118,14 @@ app.use(function (req, res, next) {
 });
 
 
-
+//mount/configuring routers on to express app
+//this gets appended on to chosen url from js route
 app.use('/', routes);
 app.use('/user', user);
 app.use('/volunteer', volunteer);
 app.use('/non-profit', nonProfit);
 app.use('/create-profile', createProfile);
+app.use('/projects', projects);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

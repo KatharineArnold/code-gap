@@ -1,13 +1,21 @@
-.w3-container a {
-    color: #337ab7;
-    text-decoration: none;
+
+html{
+    min-height: 100%;
+    min-width: 100%;
+    /* background-color: #2C3E50; */
 }
 
+.orgTitle, .volunteerTitle{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
-body, html{
-    height: 100%;
-    margin: 0;
-    padding: 0;
+.imageContainer{
+    height: 300px;
+    min-width: 100vw;
+    margin-left: -163px;
     /* background-color: rgb(227, 134, 125); */
     background: url(https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?cs=srgb&dl=achievement-agreement-arms-1068523.jpg&fm=jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -18,56 +26,66 @@ body, html{
 }
 
 .np-btn, .v-btn{
-    margin-top: 300px;
     padding: 30px;
-    
+    font-size: 2.5vh;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .np-btn{
-    margin-right: 30px;
+    margin-top: 20px;
 }
 
 .v-btn{
-    margin-left: 30px;
-
-    
-}
-
-.btn-primary{
-    /* background-color: peachpuff; */
-}
-
-.main-title{
-    transform:skew(60deg, -30deg) scaleY(.66667);
+    margin-top: 20px;
 
 }
 
-h1{
-    font-family: 'Open Sans', sans-serif;
-    color: #555;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 150px;
-    font-weight: 800;
-    letter-spacing: -3px;
-    line-height: 1;
-    text-shadow: #EDEDED 3px 2px 0;
-    position: relative;
+
+
+body{
+    padding-top: 60px;
+    overflow-x: hidden;
 }
 
-/* transition: all 0.3s ease; */
+.missionStatement{
+    margin-top: 40px;
+    font-size: 3.5vh;
+}
 
 
-.nonProfitList, .volunteersListHead, .indexContainer, .createProfile, .create{
+
+.navbar-brand{
+}
+
+/* 
+ .greyBack{
     position: absolute;
     background: rgba(0, 0, 0, 0.5); /* Black background with transparency */
-    color: #f1f1f1;
-    width: 100%;
+    /*color: #f1f1f1;
     padding: 20px;
+    margin-top: -100px;
+    border-radius: 100px;
+
+  }   */
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    margin-top: 25px;
+  }
+ 
+
+.footerCenter{
+    margin-right: auto;
+    margin-left: auto;
 }
 
-  
-
-
-
+.indexQuote{
+    margin-top: 20px;
+    font-size: 2.5vh;
+    color: #2C3E50;
+}
 

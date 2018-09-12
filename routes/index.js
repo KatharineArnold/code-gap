@@ -40,18 +40,18 @@ router.get('/callback',
   }),
   function (req, res) {
     // search for attributes
-    console.log(req.user);
+    console.log("here is the user info", req.user);
     console.log("user email", req.user._json.email);
     db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
       console.log(user);
 
       if (user === null) {
-        // create user
-        db.User.create({ email: req.user._json.email, name: req.user.displayName })
+        // create user in database
+        db.User.create({ email: req.user._json.email, name: req.user.displayName, image: req.user.picture })
           .then(user => {
             console.log('created User', user);
           });
-        // redirect to create user
+        // redirect to create  profile
         res.redirect('/create-profile');
 
       } else {

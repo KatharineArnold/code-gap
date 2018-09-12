@@ -12,19 +12,24 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Users', [{
-      name: 'John Doe',
-      email: 'john@doe.com',
-      image: "https://images.pexels.com/photos/840996/pexels-photo-840996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    return queryInterface.bulkInsert('NonProfitProfiles', [{
+      companyName: 'New Company',
+      Description: "Company Number 1",
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
-      name: 'Jane Doe',
-      email: 'jane@doe.com',
-      image: "https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      companyName: 'Choppers',
+      Description: "Company Number 2",
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    {
+      companyName: 'Billy Bobs',
+      Description: "Company Number 3",
+      createdAt: new Date(),
+      updatedAt: new Date()
+
     }], {});
   },
 
@@ -32,10 +37,11 @@ module.exports = {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
-
+  
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
-    return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('nonProfitProfiles', null, {});
+
   }
 };

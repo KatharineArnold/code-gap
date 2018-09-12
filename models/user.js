@@ -1,3 +1,7 @@
+
+
+
+//define user table 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         name: {
@@ -26,6 +30,9 @@ module.exports = function (sequelize, DataTypes) {
         User.hasOne(models.VolunteerProfile, {
             onDelete: "cascade"
         });
+        User.belongsToMany(models.NonProfitProfile, { through: models.OrganizationUser });
+
     };
+
     return User;
 };

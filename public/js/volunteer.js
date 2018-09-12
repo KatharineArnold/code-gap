@@ -22,7 +22,39 @@ $(document).ready(function () {
         }
         $.post("/volunteer/create", profileData).then(function (volunteerProfile) {
             console.log(volunteerProfile);
+            document.getElementById("volunteerForm").reset();
         });
     };
 
+
+
+
+    // $(document).on("click", "#update-volunteer", handleVolunteerUpdate);
+
+    // // This function figures out which post we want to edit and takes it to the appropriate url
+    // function handleVolunteerUpdate() {
+    //     var currentVolunteer = $(this)
+    //         .parent()
+    //         .parent()
+    //         .data("");
+    //     window.location.href = "" + currentVolunteer.id;
+    // }
+
+
+
+
+    //     $(document).on("click", "#delete-volunteer", handleDeleteButton);
+
+
+    //     // Function for handling what happens when the delete button is pressed
+    //     function handleDeleteButton() {
+    //         var volunteerData = $(this).parent("td").parent("tr").data("");
+    //         var id = volunteerData.id;
+    //         $.ajax({
+    //             method: "DELETE",
+    //             url: "/list" + id
+    //         })
+    //             .then();
+    //     }
 });
+

@@ -31,6 +31,7 @@ var server = http.createServer(app);
  */
 
 // Syncing our sequelize models and then starting our Express app
+//creats all tables if they do not eexist
 // =============================================================
 db.sequelize.sync({ force: false }).then(function () {
   // app.listen(PORT, function () {

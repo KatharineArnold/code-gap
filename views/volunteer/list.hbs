@@ -1,20 +1,29 @@
-<h1>Hello, Volunteers</h1>
+<div class="container">
+    <div class="row">
+        <h1 class="volunteerTitle">Current Volunteers</h1>
+    </div>
 
-<ul class="volunteersListHead">
-    {{#each volunteers}}
-        <li>
-            <p>Name: {{this.User.name}}</p>
-            <p>Email: {{this.User.email}}</p>
-            <p>Location: {{this.location}}</p>
-            <p>Availability: {{this.availability}} hours per week</p>
-        </li>
-    {{/each}}
-</ul>
 
-{{!-- <div>
-  <form action="/" method="POST">
-  	<textarea type="text" name="wish"></textarea>
 
-  	<button type="submit">Submit</button>
-  </form>
-</div> --}}
+
+    {{!-- //need to add technologies --}}
+    <div class="row">
+        {{#each volunteers}}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <h3 class="card-header">{{this.User.name}}</h3>
+                    <div class="card-body">
+                        <img style="height: 200px; width: 300px; display: block;" src="{{this.User.image}}" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Email: {{this.User.email}}</p>
+                        <p class="card-text">Location: {{this.location}}</p>
+                        <p class="card-text">Availability: {{this.availability}} hours per week</p>
+                        <a id="update-volunteer" href="#" role="button" class="btn btn-primary">Update Profile</a>
+                        <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete Profile</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -16,20 +16,16 @@
 
     <div class="row">
         <div class="col">
-            {{#if volunteerProfile}}
-
-                <h2>Your Profile</h2>
-                <p> Email:{{user.email}}</p>
-                <p>Location: {{volunteerProfile.location}}</p>
-                <p>Availability: {{volunteerProfile.availability}}</p>
+            {{#if NonProfitProfile}}
+                <h2>Your Organization Profile</h2>
+                <p>Company Name: {{NonProfitProfile.companyName}}</p>
+                <p>Descrition: {{NonProfitProfile.description}}</p>
+                {{!-- <p>Organization Members........</p> --}}
             {{else}}
-                <a id="createProfile" href="/volunteer/create" class="btn btn-primary">Create a Volunteer
-                    Profile</a>
-                <a id="createNonProfitProfile" href="/non-profit/create" class="btn btn-primary">Create an
+                <a id="createNonProfitProfile" class="" href="/non-profit/create" class="btn btn-primary">Add
                     Organization
                     Profile</a>
             {{/if}}
-
         </div>
     </div>
 
