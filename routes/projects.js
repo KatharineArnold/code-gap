@@ -26,14 +26,14 @@ router.get('/', function (req, res, next) {
 
 //get the form
 router.get('/add-project', ensureLoggedIn, function (req, res, next) {
-    res.render('addProject', {});
+    res.render('addProject', { nonProfitProfileId: req.query.nonProfitProfileId });
 });
 
+//adding project to database
+
 router.post('/add-project', ensureLoggedIn, function (req, res, next) {
-    //Look up userId from email
-    // db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
     const projectData = {
-        // UserId: user.id,
+        NonProfitProfileId: req.body.nonProfitProfileId,
         projectName: req.body.projectName,
         projectDescription: req.body.projectDescription
     }
@@ -41,7 +41,6 @@ router.post('/add-project', ensureLoggedIn, function (req, res, next) {
         res.json(dbProjects);
     });
 });
-// });
 
 
 // // DELETE route for deleting posts

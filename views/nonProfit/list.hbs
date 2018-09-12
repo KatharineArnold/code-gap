@@ -14,7 +14,8 @@
                     {{!-- {{!-- <img style="height: 100%; width: 100%; display: block;" src="{{this.User.image}}" alt="Card image"> --}}
                     <div class="card-body">
                         <p class="card-text"> {{this.description}}</p>
-                        <a class="btn btn-secondary" href="/projects/add-project" role="button">Add Project</a>
+                        <a class="btn btn-secondary" href='/projects/add-project?nonProfitProfileId={{this.id}}' role="button">Add
+                            Project</a>
                         {{!-- <a href='/cms?author_id=" + authorData.id + "'>Create a Post</a> --}}
                         <a class="btn btn-info" href="#" role="button">View Our Projects</a>
                         {{!-- <a href="/blog?author_id=1">Go to Posts</a> --}}

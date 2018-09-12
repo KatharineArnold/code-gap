@@ -2,6 +2,7 @@ $(document).ready(function () {
     // Getting references to the name input
     let projectNameInput = $("#projectName");
     let projectDescriptionInput = $("#projectDescription");
+    let nonProfitProfileId = $("#projectSubmit").data('nonprofitprofileid');
 
     // Adding event listeners to the form to create a new object
     $(document).on("submit", "#projectForm", handleProjectFormSubmit);
@@ -18,7 +19,8 @@ $(document).ready(function () {
 
         const projectProfileData = {
             projectName: projectNameInput.val().trim(),
-            projectDescription: projectDescriptionInput.val().trim()
+            projectDescription: projectDescriptionInput.val().trim(),
+            nonProfitProfileId: nonProfitProfileId
         }
         // /this is posting to route
         $.post("/projects/add-project", projectProfileData).then(function (projectProfile) {
