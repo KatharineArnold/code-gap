@@ -1,22 +1,19 @@
 <div class="container">
     <div class="row">
-        <h1 class="volunteerTitle">Open Projects</h1>
+        <h1 class="userTitle">{{nonProfitProfile.companyName}} Projects</h1>
     </div>
 
 
     <div class="row">
-        {{#each projects}}
+        {{#each nonProfitProfile.Projects}}
             <div class="col-md-4">
                 <div class="card mb-3">
                     <h3 class="card-header"> </h3>
                     <div class="card-body">
-                        <p class="card-text">Project Name: {{this.projectName}}</p>
+                        <p class="card-text">Project Name: {{projectName}}</p>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Description: {{this.projectDescription}}</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Organization: {{this.NonProfitProfile.companyName}}</p>
+                        <p class="card-text">Description: {{projectDescription}}</p>
                     </div>
                     <div class="card-body">
                         <p class="card-text">Technologies:</p>

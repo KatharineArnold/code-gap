@@ -17,7 +17,7 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 router.get('/', function (req, res, next) {
     // get all from db
     db.Project.findAll({
-        // include: [{ model: db.User }]
+        include: [{ model: db.NonProfitProfile }]
     }).then(function (dbProjects) {
         console.log(dbProjects);
         res.render('projects', { projects: dbProjects });

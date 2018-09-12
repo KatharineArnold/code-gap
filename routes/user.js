@@ -10,17 +10,15 @@ router.get('/', ensureLoggedIn, function (req, res, next) {
   //Look up the user, include the volunteer profile
   db.User.findOne({
     where: { email: req.user._json.email },
-    include: [{ model: db.VolunteerProfile }]
+    include: [{ model: db.VolunteerProfile }, { model: db.NonProfitProfile }]
   }).then(user => {
     res.render('user', {
       user: user,
-      volunteerProfile: user.VolunteerProfile
+      volunteerProfile: user.VolunteerProfile,
+      nonProfitProfiles: user.NonProfitProfiles
     });
   });
-  // res.render('user', {
-  //   user: req.user,
-  //   userProfile: JSON.stringify(req.user, null, '  ')
-  // });
+
 });
 
 module.exports = router;

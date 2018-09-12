@@ -1,36 +1,55 @@
-<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-gJWVjz180MvwCrGGkC4xE5FjhWkTxHIR/+GgT8j2B3KKMgh6waEjPgzzh7lL7JZT"
-    crossorigin="anonymous">
+{{!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-gJWVjz180MvwCrGGkC4xE5FjhWkTxHIR/+GgT8j2B3KKMgh6waEjPgzzh7lL7JZT"
+    crossorigin="anonymous"> --}}
 
-<div class="container">
+<div class="container userContainer">
     <div class="row">
         <div class="col">
-            <img src={{user.image}}>
+            <h1 class="userTitle"> Welcome {{user.name}}</h1>
         </div>
     </div>
 
     <div class="row">
-        <div class="col">
-            <h1> Welcome {{user.name}}</h1>
-        </div>
+        {{!-- can we add if nonProfitProfile too?? --}}
+        {{#if volunteerProfile}}
+            <div class="col-md-4 offset-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <img style="height: 100%; width: 100%; display: block;" src="{{user.image}}" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Email: {{user.email}}</p>
+                        <p class="card-text">Location: {{volunteerProfile.location}}</p>
+                        <p class="card-text">Availability: {{volunteerProfile.availability}} hours per week</p>
+                        <a id="update-volunteer" href="#" role="button" class="btn btn-primary">Update
+                            Profile</a>
+                        <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete
+                            Profile</a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+
+            <a id="createProfile" href="/volunteer/create" class="btn btn-primary">Create a Volunteer
+                Profile</a>
+        {{/if}}
     </div>
 
     <div class="row">
-        <div class="col">
-            {{#if volunteerProfile}}
-
-                <h2>Your Profile</h2>
-                <p> Email:{{user.email}}</p>
-                <p>Location: {{volunteerProfile.location}}</p>
-                <p>Availability: {{volunteerProfile.availability}}</p>
-            {{else}}
-                <a id="createProfile" href="/volunteer/create" class="btn btn-primary">Create a Volunteer
-                    Profile</a>
-                <a id="createNonProfitProfile" href="/non-profit/create" class="btn btn-primary">Create an
-                    Organization
-                    Profile</a>
-            {{/if}}
-
-        </div>
+        {{#if nonProfitProfiles}}
+            <div class="col">
+                <p>Organizations</p>
+                {{#each nonProfitProfiles}}
+                    <h3>{{companyName}}</h3>
+                    <p class="card-text">Description: {{companyDescription}}</p>
+            </div>
     </div>
+    {{/each}}
+
+    {{else}}
+        <a id="createNonProfitProfile" href="/non-profit/create" class="btn btn-primary">Create an
+            Organization
+            Profile</a>
+        {{/if}}
+</div>
 
 </div>

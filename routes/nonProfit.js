@@ -17,8 +17,20 @@ const db = require('../models');
 // ===============================================================================
 
 
+
+
 router.get('/', function (req, res, next) {
     res.render('nonProfit/nonProfit', {});
+});
+
+router.get('/show/:id', function (req, res, next) {
+    db.NonProfitProfile.findOne({
+        where: { id: req.params.id },
+        include: [{ model: db.Project }]
+    }).then(function (dbNonProfitProfile) {
+        res.render('nonProfit/show', { nonProfitProfile: dbNonProfitProfile });
+    })
+
 });
 
 router.get('/list', function (req, res, next) {
