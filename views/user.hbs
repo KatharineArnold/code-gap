@@ -10,28 +10,29 @@
 
     <div class="row">
         {{!-- can we add if nonProfitProfile too?? --}}
-        {{#if volunteerProfile}}
-            <div class="col-md-4 offset-md-4">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <img style="height: 100%; width: 100%; display: block;" src="{{user.image}}" alt="Card image">
-                    </div>
-                    <div class="card-body">
+        <div class="col-md-4 offset-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <img style="height: 100%; width: 100%; display: block;" src="{{user.image}}" alt="Card image">
+                </div>
+                <div class="card-body">
+                    {{#if volunteerProfile}}
                         <p class="card-text">Email: {{user.email}}</p>
                         <p class="card-text">Location: {{volunteerProfile.location}}</p>
                         <p class="card-text">Availability: {{volunteerProfile.availability}} hours per week</p>
                         <a id="update-volunteer" href="volunteer/{{volunteerProfile.id}}/update" role="button" class="btn btn-primary">Update
                             Profile</a>
-                        <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete
+                        <button id="deleteButton" role="button" class="btn btn-success" data-volunteer_profile_id="{{volunteerProfile.id}}">
+                            Delete Profile
+                        </button>
+                    {{else}}
+                        <a id="createProfile" href="/volunteer/create" class="btn btn-primary">Create a Volunteer
                             Profile</a>
-                    </div>
+                    {{/if}}
                 </div>
             </div>
-        {{else}}
+        </div>
 
-            <a id="createProfile" href="/volunteer/create" class="btn btn-primary">Create a Volunteer
-                Profile</a>
-        {{/if}}
     </div>
 
     <div class="row">
@@ -52,4 +53,4 @@
         {{/if}}
 </div>
 
-</div>
+<script src="/js/user.js"></script>

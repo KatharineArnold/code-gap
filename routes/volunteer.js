@@ -50,16 +50,16 @@ router.post('/create', ensureLoggedIn, function (req, res, next) {
 
 
 // // DELETE route for deleting volunteers
-// router.delete("/list/:id", ensureLoggedIn, function (req, res) {
-//     db.VolunteerProfile.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(function (dbVolunteerProfile) {
-//             res.json(dbVolunteerProfile);
-//         });
-// });
+router.delete("/:id/delete", ensureLoggedIn, function (req, res) {
+    db.VolunteerProfile.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(function (dbVolunteerProfile) {
+            res.json(dbVolunteerProfile);
+        });
+});
 
 //get the form, and passing in profile to update
 router.get('/:id/update', ensureLoggedIn, function (req, res, next) {
