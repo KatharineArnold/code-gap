@@ -20,6 +20,7 @@ $(document).ready(function () {
             location: locationInput.val().trim(),
             hours: hoursInput.val().trim()
         }
+        //post form data to create endpoint
         $.post("/volunteer/create", profileData).then(function (volunteerProfile) {
             console.log(volunteerProfile);
             document.getElementById("volunteerForm").reset();

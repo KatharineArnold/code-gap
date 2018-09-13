@@ -13,7 +13,7 @@ html{
 }
 
 .imageContainer{
-    height: 300px;
+    min-height: 300px;
     min-width: 100vw;
     margin-left: -163px;
     /* background-color: rgb(227, 134, 125); */
@@ -23,6 +23,7 @@ html{
     -o-background-size: cover;
     background-size: cover;
     color: white;
+    padding-bottom: 20px;
 }
 
 .np-btn, .v-btn{
@@ -38,6 +39,7 @@ html{
 
 .v-btn{
     margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 
@@ -47,7 +49,7 @@ body{
     padding-top: 60px;
     overflow-x: hidden;
     position: relative;
-    padding-bottom: 3rem;
+    padding-bottom: 200px;
     min-height: 100vh;
 
 
@@ -77,19 +79,20 @@ body{
       margin-top: 30px;
   }
 
-  .footer {
+  footer{
     position: absolute !important;
     bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 200px;
     margin-top: 30px;
-  }
+    background-color: lightgrey;
+  } 
  
-
-.footerCenter{
+/* 
+ .footerCenter{
     margin-right: auto;
     margin-left: auto;
-}
+} */
 
 .indexQuote{
     margin-top: 20px;
@@ -131,4 +134,16 @@ body{
 .addOrgBtn{
     margin-bottom: 20px;
     margin-top: -40px;
+}
+
+
+ .social ul li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+
+.followUs{
+    margin-left: 40px;
+    margin-top: 70px;
 }

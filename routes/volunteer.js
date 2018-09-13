@@ -14,10 +14,6 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 // ROUTING
 // ===============================================================================
 
-
-
-
-
 router.get('/', function (req, res, next) {
     res.render('volunteer/volunteer', {});
 });
@@ -53,26 +49,34 @@ router.post('/create', ensureLoggedIn, function (req, res, next) {
 });
 
 
-// DELETE route for deleting volunteers
-router.delete("/list/:id", ensureLoggedIn, function (req, res) {
-    db.VolunteerProfile.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(function (dbVolunteerProfile) {
-            res.json(dbVolunteerProfile);
-        });
+// // DELETE route for deleting volunteers
+// router.delete("/list/:id", ensureLoggedIn, function (req, res) {
+//     db.VolunteerProfile.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//         .then(function (dbVolunteerProfile) {
+//             res.json(dbVolunteerProfile);
+//         });
+// });
+
+//get the form, and passing in profile to update
+router.get('/:id/update', ensureLoggedIn, function (req, res, next) {
+    db.VolunteerProfile.findOne({ where: { id: req.params.id } }).then(volunteerProfile => {
+        res.render('volunteer/update', { volunteerProfile: volunteerProfile });
+    });
+
 });
 
 // PUT route for updating volunteers
-router.put("/list", ensureLoggedIn, function (req, res) {
+router.put("/:id/update", ensureLoggedIn, function (req, res) {
     db.VolunteerProfile.update({
         location: req.body.location,
         availability: req.body.hours
     }, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function (dbVolunteerProfile) {
             res.json(dbVolunteerProfile);

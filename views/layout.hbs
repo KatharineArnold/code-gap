@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" role="navigation">
         <div class="container">
 
-            <div class="navbar-brand">Code Gap</div>
+            <div><a href="/" class="navbar-brand" data-toggle="tab"> Code Gap</a></div>
             <a href="/" class="nav-link" data-toggle="tab"> Home</a>
             <a href="/projects" class="nav-link" data-toggle="tab"> Browse Projects</a>
             <a href="/volunteer/list" class="nav-link" data-toggle="tab"> View Volunteers</a>
@@ -38,9 +38,12 @@
     </nav>
 
     {{{body}}}
-    <footer class="footer navbar">
+    {{!-- <footer class="footer navbar">
         <div class="container footerContainer">
-            <div class="row footerCenter">
+            <div class="row">
+                <p>Follow Us!</p>
+            </div>
+            <div class="row">
                 <div class="col">
                     <a href="#">
                         <i class="fa fa-facebook fa-2x"></i>
@@ -58,6 +61,37 @@
                 </div>
             </div>
         </div>
+    </footer> --}}
+
+    <footer>
+        <div class="row">
+            <div class="col followUs">
+                <h4>Follow Us!</h4>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="social">
+                <div class="col rowTwo">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/KatharineArnold">
+                                <i class="fa fa-github fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/katharine-arnold-7914b418">
+                                <i class="fa fa-linkedin fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/KatharineArno19">
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
     </footer>
 </body>
 
