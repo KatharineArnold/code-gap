@@ -17,6 +17,13 @@ module.exports = function (sequelize, DataTypes) {
                 notEmpty: true
             }
         },
+        // technology: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         notEmpty: true
+        //     }
+        // },
     });
 
 

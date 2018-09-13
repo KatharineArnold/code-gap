@@ -5,11 +5,10 @@ html{
     /* background-color: #2C3E50; */
 }
 
-.orgTitle, .volunteerTitle{
+.create-title{
+    text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .imageContainer{
@@ -43,7 +42,20 @@ html{
 
 }
 
+.joinBtnV, .joinBtnO{
+    font-size: 2.5vh;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
 
+.joinBtnV{
+    margin:50px;
+    padding: 60px;
+}
+.joinBtnO{
+    padding: 52px;
+    margin-left: 50px;
+}
 
 body{
     padding-top: 60px;
@@ -62,37 +74,15 @@ body{
 
 
 
-
-
-/* 
- .greyBack{
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5); /* Black background with transparency */
-    /*color: #f1f1f1;
-    padding: 20px;
-    margin-top: -100px;
-    border-radius: 100px;
-
-  }   */
-
   #createProfile, #createNonProfitProfile{
       margin-top: 30px;
   }
 
-  footer{
-    position: absolute !important;
-    bottom: 0;
-    width: 100%;
-    height: 200px;
-    margin-top: 30px;
-    background-color: lightgrey;
-  } 
- 
-/* 
- .footerCenter{
-    margin-right: auto;
-    margin-left: auto;
-} */
+  #createProfile{
+      margin-left: 30px;
+      padding: 30px;
+  }
+
 
 .indexQuote{
     margin-top: 20px;
@@ -137,13 +127,53 @@ body{
 }
 
 
- .social ul li {
-	display: inline-block;
-	margin: 0 10px;
+.join{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px;
+
+}
+
+.joinImg{
+    height: 400px;
+    width: 100%;
+    margin-top: -220px;
+    border-radius: 25%;
+}
+
+.projectTitle, .orgTitle, .volunteerTitle{
+    text-align: center;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+.cardTitle{
+    font-weight: bolder;
+    font-size: 18px;
 }
 
 
-.followUs{
-    margin-left: 40px;
-    margin-top: 70px;
+.addOrg {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#createNonProfitProfile{
+    padding: 30px;
+}
+
+.orgCardTitle{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.orgBody{
+    padding: 15px;
+    padding-top: 0px;
 }

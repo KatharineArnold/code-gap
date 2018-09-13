@@ -2,6 +2,8 @@ $(document).ready(function () {
     // Getting references to the name input
     let locationInput = $("#location");
     let hoursInput = $("#hours");
+    // let techInput = $("#techSelect").val();
+    // console.log(techInput);
 
     // Adding event listeners to the form to create a new object
     $(document).on("submit", "#volunteerForm", handleVolunteerFormSubmit);
@@ -18,12 +20,15 @@ $(document).ready(function () {
 
         const profileData = {
             location: locationInput.val().trim(),
-            hours: hoursInput.val().trim()
+            hours: hoursInput.val().trim(),
+            // technology: techInput.val().trim()
         }
         //post form data to create endpoint
         $.post("/volunteer/create", profileData).then(function (volunteerProfile) {
             console.log(volunteerProfile);
             document.getElementById("volunteerForm").reset();
+            window.location.href = '/user';
+
         });
     };
 

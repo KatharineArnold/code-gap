@@ -70,16 +70,15 @@ router.post('/create', ensureLoggedIn, function (req, res, next) {
     db.NonProfitProfile.create(nonProfitProfileData).then(function (dbNonProfitProfile) {
         db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
             user.addNonProfitProfile(dbNonProfitProfile, { through: { role: 'owner' } });
-
         });
-
         res.json(dbNonProfitProfile);
     });
-    // });
 });
 
+
+
 // DELETE route for deleting organizations
-router.delete("/list/:id", ensureLoggedIn, function (req, res) {
+router.delete("/:id/delete", ensureLoggedIn, function (req, res) {
     db.NonProfitProfile.destroy({
         where: {
             id: req.params.id
@@ -91,19 +90,32 @@ router.delete("/list/:id", ensureLoggedIn, function (req, res) {
 });
 
 
-// PUT route for updating 
-router.put("/list", ensureLoggedIn, function (req, res) {
+
+// PUT route for updating nonprofit
+router.put("/:id/update", ensureLoggedIn, function (req, res) {
     db.NonProfitProfile.update({
         companyName: req.body.companyName,
         description: req.body.description,
     }, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then(function (dbNonProfitProfile) {
             res.json(dbNonProfitProfile);
         });
 });
+
+
+//get the form, and passing in profile to update
+router.get('/:id/update', ensureLoggedIn, function (req, res, next) {
+    db.NonProfitProfile.findOne({ where: { id: req.params.id } }).then(nonProfitProfile => {
+        res.render('nonProfit/update', { nonProfitProfile: nonProfitProfile });
+    });
+
+});
+
+
+
 
 
 module.exports = router;

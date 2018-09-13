@@ -17,9 +17,11 @@
                 </div>
                 <div class="card-body">
                     {{#if volunteerProfile}}
-                        <p class="card-text">Email: {{user.email}}</p>
-                        <p class="card-text">Location: {{volunteerProfile.location}}</p>
-                        <p class="card-text">Availability: {{volunteerProfile.availability}} hours per week</p>
+                        <p class="card-text"><span class="cardTitle">Email:</span> {{user.email}}</p>
+                        <p class="card-text"><span class="cardTitle">Location:</span> {{volunteerProfile.location}}</p>
+                        <p class="card-text"><span class="cardTitle">Technologies:</span> {{volunteerProfile.technology}}</p>
+                        <p class="card-text"><span class="cardTitle">Availability:</span>
+                            {{volunteerProfile.availability}} hours per week</p>
                         <a id="update-volunteer" href="volunteer/{{volunteerProfile.id}}/update" role="button" class="btn btn-primary">Update
                             Profile</a>
                         <button id="deleteButton" role="button" class="btn btn-success" data-volunteer_profile_id="{{volunteerProfile.id}}">
@@ -37,19 +39,29 @@
 
     <div class="row">
         {{#if nonProfitProfiles}}
-            <div class="col">
-                <h3>Organization Memberships</h3>
-                {{#each nonProfitProfiles}}
-                    <p>{{companyName}}</p>
-                    <p class="card-text">Description: {{companyDescription}}</p>
-            </div>
+            <h3 class="orgCardTitle">Organization Memberships</h3>
+            {{#each nonProfitProfiles}}
+                <div class="col-md-4 offset-md-4">
+                    <div class="card mb-3 orgBody">
+                        <div class="card-body"></div>
+                        <p class="card-text"><span class="cardTitle">Company Name:</span> {{companyName}}</p>
+                        <p class="card-text"><span class="cardTitle">Description:</span> {{companyDescription}}</p>
+                         <a id="update-volunteer" href="non-profit/{{nonProfitProfile.id}}/update" role="button" class="btn btn-primary">Update</a>
+                        <button id="deleteButton" role="button" class="btn btn-success" data-non_profit_profile_id="{{nonProfitProfile.id}}">
+                            Delete
+                        </button>
+                    </div>
+                </div>
     </div>
     {{/each}}
 
     {{else}}
-        <a id="createNonProfitProfile" href="/non-profit/create" class="btn btn-primary">Create an
-            Organization
-            Profile</a>
+        <div class="row addOrg">
+            <div class="col">
+                <a id="createNonProfitProfile" href="/non-profit/create" class="btn btn-primary">Create an
+                    Organization Profile</a>
+            </div>
+        </div>
         {{/if}}
 </div>
 

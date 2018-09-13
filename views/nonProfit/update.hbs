@@ -3,21 +3,21 @@
         <div class="col">
 
             {{!-- need name and email from auth0 --}}
-            <h2 class="create-title">Create New Organization</h2>
+            <h2 class="create-title">Update Organization</h2>
         </div>
     </div>
 
-    <form id="orgForm">
+    <form id="orgForm" data-non_profit_profile_id="{{nonProfitProfile.id}}">
         <div class="form-group row">
             <label for="orgName" class="col-sm-2 col-form-label">Organization Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="orgName" placeholder="Company Name">
+                <input type="text" class="form-control" id="orgName" placeholder="Company Name" value="{{nonProfitProfile.companyName}}">
             </div>
         </div>
         <div class="form-group row">
             <label for="orgDescription" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="orgDescription" placeholder="Description">
+                <input type="text" class="form-control" id="orgDescription" placeholder="Description" value="{{nonProfitProfile.description}}">
             </div>
         </div>
 
@@ -37,6 +37,4 @@
 
 
     </form>
-
-</div>
-<script src="/js/organization.js"></script>
+    <script src="/js/nonProfit/update.js"></script>

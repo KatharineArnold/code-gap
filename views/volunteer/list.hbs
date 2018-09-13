@@ -16,11 +16,12 @@
                         <img style="height: 200px; width: 300px; display: block;" src="{{this.User.image}}" alt="Card image">
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Email: {{this.User.email}}</p>
-                        <p class="card-text">Location: {{this.location}}</p>
-                        <p class="card-text">Availability: {{this.availability}} hours per week</p>
-                        <a id="update-volunteer" href="#" role="button" class="btn btn-primary">Update Profile</a>
-                        <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete Profile</a>
+                        <p class="card-text"><span class="cardTitle">Email:</span> {{this.User.email}}</p>
+                        <p class="card-text"><span class="cardTitle">Location:</span> {{this.location}}</p>
+                        <p class="card-text"><span class="cardTitle">Availability:</span> {{this.availability}} hours
+                            per week</p>
+                        {{!-- <a id="update-volunteer" href="#" role="button" class="btn btn-primary">Update Profile</a>
+                        <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete Profile</a> --}}
                     </div>
                 </div>
             </div>

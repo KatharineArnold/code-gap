@@ -19,7 +19,7 @@ module.exports = {
     const promise = new Promise((resolve, reject) => {
       db.NonProfitProfile.create({
         companyName: 'Choppers Basset Rescue',
-        Description: "A rescue for the most patient and forgiving dog owners.",
+        description: "A rescue for the most patient and forgiving dog owners.",
       }).then(choppers => db.Project.create({
         projectName: 'Adoption Site',
         projectDescription: "Node Project",

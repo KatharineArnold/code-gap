@@ -24,6 +24,8 @@ $(document).ready(function () {
         $.post("/non-profit/create", orgProfileData).then(function (orgProfile) {
             console.log(orgProfile);
             document.getElementById("orgForm").reset();
+            window.location.href = '/user';
+
 
         });
     };
