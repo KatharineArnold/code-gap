@@ -1,5 +1,8 @@
 'use strict';
 
+const db = require('../models');
+
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -12,25 +15,35 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('NonProfitProfiles', [{
-      companyName: 'New Company',
-      Description: "Company Number 1",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      companyName: 'Choppers',
-      Description: "Company Number 2",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      companyName: 'Billy Bobs',
-      Description: "Company Number 3",
-      createdAt: new Date(),
-      updatedAt: new Date()
 
-    }], {});
+    const promise = new Promise((resolve, reject) => {
+      db.NonProfitProfile.create({
+        companyName: 'Choppers Basset Rescue',
+        Description: "A rescue for the most patient and forgiving dog owners.",
+      }).then(choppers => db.Project.create({
+        projectName: 'Adoption Site',
+        projectDescription: "Node Project",
+        NonProfitProfileId: choppers.id
+      })).then(() => db.NonProfitProfile.create({
+        companyName: 'Dot Angel house',
+        Description: "For those who want to save a sweet little cherub straight from above.",
+      })).then(dot => db.Project.create({
+        projectName: 'Dot Site Redesign',
+        projectDescription: "Javascript Project",
+        NonProfitProfileId: dot.id,
+      })).then(() => db.NonProfitProfile.create({
+        companyName: 'Billy Bobs',
+        Description: "Helping Billies and Bobs",
+      })).then(billy => db.Project.create({
+        projectName: 'Project 3',
+        projectDescription: "PHP Project",
+        NonProfitProfileId: billy.id,
+      }))
+        .then(() => resolve())
+        .catch((reason) => reject(reason));
+    });
+
+    return promise;
   },
 
   down: (queryInterface, Sequelize) => {
@@ -41,7 +54,8 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
-    return queryInterface.bulkDelete('nonProfitProfiles', null, {});
+    return queryInterface.bulkDelete('Projects', null, {})
+      .then(() => queryInterface.bulkDelete('NonProfitProfiles', null, {}));
 
   }
 };
