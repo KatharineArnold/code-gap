@@ -26,14 +26,14 @@ module.exports = {
         NonProfitProfileId: choppers.id
       })).then(() => db.NonProfitProfile.create({
         companyName: 'Dot Angel house',
-        Description: "For those who want to save a sweet little cherub straight from above.",
+        description: "For those who want to save a sweet little cherub straight from above.",
       })).then(dot => db.Project.create({
         projectName: 'Dot Site Redesign',
         projectDescription: "Javascript Project",
         NonProfitProfileId: dot.id,
       })).then(() => db.NonProfitProfile.create({
         companyName: 'Billy Bobs',
-        Description: "Helping Billies and Bobs",
+        description: "Helping Billies and Bobs",
       })).then(billy => db.Project.create({
         projectName: 'Project 3',
         projectDescription: "PHP Project",

@@ -8,23 +8,29 @@
         {{#each projects}}
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <h3 class="card-header"> </h3>
+                    <div class="card-body">
+                        <h4 class="card-header"> {{this.NonProfitProfile.companyName}} </h4>
+                    </div>
                     <div class="card-body">
                         <p class="card-text"> <span class="cardTitle">Project Name:</span> {{this.projectName}}</p>
                     </div>
                     <div class="card-body">
                         <p class="card-text"><span class="cardTitle">Description:</span> {{this.projectDescription}}</p>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text"><span class="cardTitle">Organization:</span>
-                            {{this.NonProfitProfile.companyName}}</p>
-                    </div>
+
                     <div class="card-body">
                         <p class="card-text"><span class="cardTitle">Technologies:</span></p>
                     </div>
+                    <a id="update-project" href="/projects/{{id}}/update" role="button" class="btn btn-primary">Update</a>
+                    <button role="button" class="btn btn-success projectDeleteButton" data-project_id="{{id}}">
+                        Delete
+                    </button>
                 </div>
             </div>
         {{/each}}
 
     </div>
 </div>
+
+
+<script src="/js/project/list.js"></script>

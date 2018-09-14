@@ -4,11 +4,22 @@ $(document).ready(function () {
 
     $(document).on("click", "#deleteButton", handleDeleteButtonClick);
 
-    // A function to handle what happens when the form is submitted to create a new Author
     function handleDeleteButtonClick(event) {
         $.ajax({
             method: "DELETE",
             url: "/volunteer/" + volunteerProfileId + "/delete"
+        }).then(function () {
+            window.location.href = '/user';
+        });
+    };
+
+    $(document).on("click", ".orgDeleteButton", handleOrgDeleteButtonClick);
+
+    function handleOrgDeleteButtonClick(event) {
+        const nonProfitProfileId = $(this).data('non_profit_profile_id');
+        $.ajax({
+            method: "DELETE",
+            url: "/non-profit/" + nonProfitProfileId + "/delete"
         }).then(function () {
             window.location.href = '/user';
         });

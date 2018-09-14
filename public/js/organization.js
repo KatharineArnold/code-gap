@@ -31,33 +31,5 @@ $(document).ready(function () {
     };
 
 
-    // $(document).on("click", "#update-organization", handleOrganizationUpdate);
-
-    // // This function figures out which post we want to edit and takes it to the appropriate url
-    // function handleOrganizationUpdate() {
-    //     var currentOrganization = $(this)
-    //         .parent()
-    //         .parent()
-    //         .data("organization");
-    //     window.location.href = "" + currentOrganization.id;
-    // }
-
-
-
-
-    //     $(document).on("click", "#delete-organization", handleDeleteButton);
-
-
-    //     // Function for handling what happens when the delete button is pressed
-    //     function handleDeleteButton() {
-    //         var organizationData = $(this).parent("td").parent("tr").data("");
-    //         var id = organizationData.id;
-    //         $.ajax({
-    //             method: "DELETE",
-    //             url: "" + id
-    //         })
-    //             .then();
-    //     }
-    // });
 
 });

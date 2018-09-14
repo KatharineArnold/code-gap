@@ -14,13 +14,13 @@ const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 // ROUTING
 // ===============================================================================
 
-router.get('/', function (req, res, next) {
+router.get('/list', function (req, res, next) {
     // get all from db
     db.Project.findAll({
         include: [{ model: db.NonProfitProfile }]
     }).then(function (dbProjects) {
         console.log(dbProjects);
-        res.render('projects', { projects: dbProjects });
+        res.render('project/list', { projects: dbProjects });
     });
 });
 
@@ -43,30 +43,40 @@ router.post('/add-project', ensureLoggedIn, function (req, res, next) {
 });
 
 
-// // DELETE route for deleting posts
-// router.delete("/projects/:id", ensureLoggedIn, function (req, res) {
-//     db.Project.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(function (dbProjects) {
-//             res.json(dbProjects);
-//         });
-// });
+// DELETE route for deleting posts
+router.delete("/:id/delete", ensureLoggedIn, function (req, res) {
+    db.Project.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(function (dbProjects) {
+            res.json(dbProjects);
+        });
+});
 
-// // PUT route for updating volunteers
-// router.put("/list", ensureLoggedIn, function (req, res) {
-//     db.VolunteerProfile.update({
-//         location: req.body.location,
-//         availability: req.body.hours
-//     }, {
-//             where: {
-//                 id: req.body.id
-//             }
-//         }).then(function (dbVolunteerProfile) {
-//             res.json(dbVolunteerProfile);
-//         });
-// });
+// PUT route for updating 
+router.put("/:id/update", ensureLoggedIn, function (req, res) {
+    db.Project.update({
+        projectName: req.body.projectName,
+        projectDescription: req.body.projectDescription
+    }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbProject) {
+            res.json(dbProject);
+        });
+});
+
+
+//get the form, and passing in profile to update
+router.get("/:id/update", ensureLoggedIn, function (req, res, next) {
+    db.Project.findOne({ where: { id: req.params.id } }).then(project => {
+        res.render("project/update", { project: project });
+    });
+
+});
+
 
 module.exports = router;

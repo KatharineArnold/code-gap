@@ -45,9 +45,9 @@
                     <div class="card mb-3 orgBody">
                         <div class="card-body"></div>
                         <p class="card-text"><span class="cardTitle">Company Name:</span> {{companyName}}</p>
-                        <p class="card-text"><span class="cardTitle">Description:</span> {{companyDescription}}</p>
-                         <a id="update-volunteer" href="non-profit/{{nonProfitProfile.id}}/update" role="button" class="btn btn-primary">Update</a>
-                        <button id="deleteButton" role="button" class="btn btn-success" data-non_profit_profile_id="{{nonProfitProfile.id}}">
+                        <p class="card-text"><span class="cardTitle">Description:</span> {{description}}</p>
+                        <a id="update-non-profit" href="non-profit/{{id}}/update" role="button" class="btn btn-primary">Update</a>
+                        <button role="button" class="btn btn-success orgDeleteButton" data-non_profit_profile_id="{{id}}">
                             Delete
                         </button>
                     </div>

@@ -31,22 +31,6 @@ $(document).ready(function () {
     };
 
 
-    //     $(document).on("click", "#delete-volunteer", handleDeleteButton);
-
-
-    //     // Function for handling what happens when the delete button is pressed
-    //     function handleDeleteButton() {
-    //         var volunteerData = $(this).parent("td").parent("tr").data("author");
-    //         var id = volunteerData.id;
-    //         $.ajax({
-    //             method: "DELETE",
-    //             url: "/list" + id
-    //         })
-    //             .then();
-    //     }
-    // });
-
-
     // this is allowing user to select multiple technologies
     jQuery('option').mousedown(function (e) {
         e.preventDefault();
