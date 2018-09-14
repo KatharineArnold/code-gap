@@ -2,17 +2,21 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Gap</title>
+
+    <link rel="shortcut icon" href="/favicon.jpg" type="image/x-icon">
+    <link rel="icon" href="/favicon.jpg" type="image/x-icon">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gJWVjz180MvwCrGGkC4xE5FjhWkTxHIR/+GgT8j2B3KKMgh6waEjPgzzh7lL7JZT" crossorigin="anonymous">
     <link rel='stylesheet' href="/stylesheets/style.css" />
     <script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
-    {{!--<script src="../public/js/index.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,9 +24,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" role="navigation">
+    <nav class="navbar  navbar-dark bg-primary fixed-top" role="navigation">
         <div class="container">
 
+            <div><img src="favicon.jpg" href="/" class="navbar-brand" data-toggle="tab"></div>
             <div><a href="/" class="navbar-brand" data-toggle="tab"> Code Gap</a></div>
             <a href="/" class="nav-link" data-toggle="tab"> Home</a>
             <a href="/projects/list" class="nav-link" data-toggle="tab"> Browse Projects</a>
@@ -38,30 +43,6 @@
     </nav>
     <div class="container">
         {{{body}}}
-        {{!-- <footer class="footer navbar">
-        <div class="container footerContainer">
-            <div class="row">
-                <p>Follow Us!</p>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a href="#">
-                        <i class="fa fa-facebook fa-2x"></i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <i class="fa fa-linkedin fa-2x"></i>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="#">
-                        <i class="fa fa-twitter fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer> --}}
 
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
 

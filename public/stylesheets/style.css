@@ -13,8 +13,8 @@ html{
 
 .imageContainer{
     min-height: 300px;
-    min-width: 100vw;
-    margin-left: -163px;
+    /* min-width: 200vw; */
+    /* margin-left: -163px; */
     /* background-color: rgb(227, 134, 125); */
     background: url(https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?cs=srgb&dl=achievement-agreement-arms-1068523.jpg&fm=jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -23,6 +23,16 @@ html{
     background-size: cover;
     color: white;
     padding-bottom: 20px;
+}
+
+.cardImage{
+    /* height: 200px; 
+    width: 300px;  */
+    display: block;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+   
 }
 
 .np-btn, .v-btn{
@@ -61,7 +71,7 @@ body{
     padding-top: 60px;
     overflow-x: hidden;
     position: relative;
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
     min-height: 100vh;
 
 
@@ -179,5 +189,10 @@ body{
 }
 
 .volunteerCard{
-    height: 600px;
+    min-height: 600px;
+}
+
+
+.projectCard{
+    height: 200px;
 }

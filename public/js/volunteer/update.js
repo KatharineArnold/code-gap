@@ -37,3 +37,17 @@ $(document).ready(function () {
 
 });
 
+//if selected show selected
+// need to get inputs in an array to loop 
+//check if selected
+//loop the update form inputs and show the previousy selected inputs as selected
+
+
+//  // Creates the author options in the dropdown
+//   function createAuthorRow(author) {
+//     var listOption = $("<option>");
+//     listOption.attr("value", author.id);
+//     listOption.text(author.name);
+//     return listOption;
+//   }
+// }

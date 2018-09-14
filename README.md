@@ -7,11 +7,11 @@ The concept of Code Gap is bridging the gap between Software Developers hungry f
 Using Node.js, Handlebars, Express and Sequelize I was able to develop an app that allows users to create a profile on Code Gap as well as view projects, and allows organizations to create a profile, add projects and view volunteers.
 
 ## Technologies
-Node.js
-Express
-Handlebars
-Sequelize
-Auth0
+* Node.js
+* Express
+* Handlebars
+* Sequelize
+* Auth0
 
 ## Installation 
 
