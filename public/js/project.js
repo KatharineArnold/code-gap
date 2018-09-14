@@ -26,9 +26,13 @@ $(document).ready(function () {
         $.post("/projects/add-project", projectProfileData).then(function (projectProfile) {
             console.log(projectProfile);
             document.getElementById("projectForm").reset();
+            window.location.href = '/non-profit/list';
+
 
         });
     };
+
+
 
 
     // this is allowing user to select multiple technologies

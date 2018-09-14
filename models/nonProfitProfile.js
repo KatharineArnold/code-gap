@@ -8,7 +8,25 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
             }
         },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+            }
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+            }
+        },
         description: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+            }
+        },
+        location: {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {

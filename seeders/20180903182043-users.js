@@ -20,7 +20,9 @@ module.exports = {
         email: "john@doe.com",
         image: "https://images.pexels.com/photos/840996/pexels-photo-840996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       }).then(john => db.VolunteerProfile.create({
+        bio: 'An experienced Software/DevOps/Security engineer, currently living in Denver.',
         location: 'Denver',
+        technologies: "PHP, Node.js",
         availability: 20,
         UserId: john.id
       })).then(() => db.User.create({
@@ -28,7 +30,9 @@ module.exports = {
         email: "jane@doe.com",
         image: "https://images.pexels.com/photos/935756/pexels-photo-935756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
       })).then(jane => db.VolunteerProfile.create({
+        bio: 'Versatile Front-end Developer with 1+ years of experience designing, developing, and managing complex e-commerce sites and internal frameworks.',
         location: 'San Francisco',
+        technologies: "React, Javascript",
         availability: 10,
         UserId: jane.id
       }))

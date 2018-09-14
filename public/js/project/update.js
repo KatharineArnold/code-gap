@@ -20,7 +20,7 @@ $(document).ready(function () {
             url: "/projects/" + projectId + "/update",
             data: profileData
         }).then(function () {
-            window.location.href = '/projects/list';
+            window.location.href = "/projects/list";
         });
     };
 });

@@ -2,7 +2,8 @@ $(document).ready(function () {
     // Getting references to the name input
     let locationInput = $("#location");
     let hoursInput = $("#hours");
-    // let techInput = $("#techSelect").val();
+    let techInput = $("#techSelect");
+    let bioInput = $("#bio");
     // console.log(techInput);
 
     // Adding event listeners to the form to create a new object
@@ -21,7 +22,8 @@ $(document).ready(function () {
         const profileData = {
             location: locationInput.val().trim(),
             hours: hoursInput.val().trim(),
-            // technology: techInput.val().trim()
+            bio: bioInput.val().trim(),
+            technologies: techInput.val().join(", ")
         }
         //post form data to create endpoint
         $.post("/volunteer/create", profileData).then(function (volunteerProfile) {
@@ -32,35 +34,14 @@ $(document).ready(function () {
         });
     };
 
+    // this is allowing user to select multiple technologies
+    jQuery('option').mousedown(function (e) {
+        e.preventDefault();
+        jQuery(this).toggleClass('selected');
 
+        jQuery(this).prop('selected', !jQuery(this).prop('selected'));
+        return false;
+    });
 
-
-    // $(document).on("click", "#update-volunteer", handleVolunteerUpdate);
-
-    // // This function figures out which post we want to edit and takes it to the appropriate url
-    // function handleVolunteerUpdate() {
-    //     var currentVolunteer = $(this)
-    //         .parent()
-    //         .parent()
-    //         .data("");
-    //     window.location.href = "" + currentVolunteer.id;
-    // }
-
-
-
-
-    //     $(document).on("click", "#delete-volunteer", handleDeleteButton);
-
-
-    //     // Function for handling what happens when the delete button is pressed
-    //     function handleDeleteButton() {
-    //         var volunteerData = $(this).parent("td").parent("tr").data("");
-    //         var id = volunteerData.id;
-    //         $.ajax({
-    //             method: "DELETE",
-    //             url: "/list" + id
-    //         })
-    //             .then();
-    //     }
 });
 

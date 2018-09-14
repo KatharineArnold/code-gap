@@ -17,9 +17,10 @@
                 </div>
                 <div class="card-body">
                     {{#if volunteerProfile}}
+                        <p class="card-text"><span class="cardTitle">Bio:</span> {{volunteerProfile.bio}}</p>
                         <p class="card-text"><span class="cardTitle">Email:</span> {{user.email}}</p>
                         <p class="card-text"><span class="cardTitle">Location:</span> {{volunteerProfile.location}}</p>
-                        <p class="card-text"><span class="cardTitle">Technologies:</span> {{volunteerProfile.technology}}</p>
+                        <p class="card-text"><span class="cardTitle">Technologies:</span> {{volunteerProfile.technologies}}</p>
                         <p class="card-text"><span class="cardTitle">Availability:</span>
                             {{volunteerProfile.availability}} hours per week</p>
                         <a id="update-volunteer" href="volunteer/{{volunteerProfile.id}}/update" role="button" class="btn btn-primary">Update
@@ -46,6 +47,9 @@
                         <div class="card-body"></div>
                         <p class="card-text"><span class="cardTitle">Company Name:</span> {{companyName}}</p>
                         <p class="card-text"><span class="cardTitle">Description:</span> {{description}}</p>
+                        <p class="card-text"><span class="cardTitle">Email:</span> {{email}}</p>
+                        <p class="card-text"><span class="cardTitle">Phone:</span> {{phone}}</p>
+                        <p class="card-text"><span class="cardTitle">Location:</span> {{location}}</p>
                         <a id="update-non-profit" href="non-profit/{{id}}/update" role="button" class="btn btn-primary">Update</a>
                         <button role="button" class="btn btn-success orgDeleteButton" data-non_profit_profile_id="{{id}}">
                             Delete

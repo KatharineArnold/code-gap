@@ -16,11 +16,14 @@
                 <div class="card mb-3">
                     <h3 class="card-header">{{this.companyName}}</h3>
                     <div class="card-body">
-                        <div>Members: {{this.memberCount}}</div>
-                        <div>Projects: {{this.projectCount}}</div>
+                        <p class="card-text"> {{this.description}}</p>
                     </div>
                     <div class="card-body">
-                        <p class="card-text"> {{this.description}}</p>
+                        <p><span class="cardTitle">Projects:</span> {{this.projectCount}}</p>
+                        <p><span class="cardTitle">Members:</span> {{this.memberCount}}</p>
+                        <p><span class="cardTitle">Phone:</span> {{this.phone}}</p>
+                        <p><span class="cardTitle">Email:</span> {{this.email}}</p>
+                        <p><span class="cardTitle">location:</span> {{this.location}}</p>
                         <a class="btn btn-secondary" href='/projects/add-project?nonProfitProfileId={{this.id}}' role="button">Add
                             Project</a>
                         <a class="btn btn-success" href="/non-profit/show/{{this.id}}" role="button">View Our Projects</a>

@@ -2,6 +2,9 @@ $(document).ready(function () {
     // Getting references to the name input
     let orgNameInput = $("#orgName");
     let orgDescriptionInput = $("#orgDescription");
+    let orgEmailInput = $("#orgEmail");
+    let orgPhoneInput = $("#orgPhone");
+    let orgLocationInput = $("#orgLocation");
 
     // Adding event listeners to the form to create a new object
     $(document).on("submit", "#orgForm", handleOrgFormSubmit);
@@ -11,14 +14,13 @@ $(document).ready(function () {
     // A function to handle what happens when the form is submitted to create a new Author
     function handleOrgFormSubmit(event) {
         event.preventDefault();
-        // Don't do anything if the name field hasn't been filled out
-        // if (!locationInput.val().trim().trim()) {
-        //     return;
-        // }
 
         const orgProfileData = {
             companyName: orgNameInput.val().trim(),
-            description: orgDescriptionInput.val().trim()
+            description: orgDescriptionInput.val().trim(),
+            phone: orgPhoneInput.val().trim(),
+            email: orgEmailInput.val().trim(),
+            Location: orgLocationInput.val().trim()
         }
         // /this is posting to route
         $.post("/non-profit/create", orgProfileData).then(function (orgProfile) {

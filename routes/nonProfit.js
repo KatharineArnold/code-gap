@@ -42,10 +42,13 @@ router.get('/list', function (req, res, next) {
         let orgViewModel = dbNonProfitProfiles.map(function (org) {
             return {
                 id: org.id,
+                email: org.email,
+                phone: org.phone,
                 companyName: org.companyName,
                 description: org.description,
                 memberCount: org.Users.length,
-                projectCount: org.Projects.length
+                projectCount: org.Projects.length,
+                location: org.location
             }
         });
         res.render('nonProfit/list', { nonProfitProfiles: orgViewModel });
@@ -64,6 +67,9 @@ router.post('/create', ensureLoggedIn, function (req, res, next) {
         // UserId: user.id,
         companyName: req.body.companyName,
         description: req.body.description,
+        email: req.body.email,
+        phone: req.body.phone,
+        location: req.body.location
     }
 
     // creating non profit profile then adding user to profile
@@ -96,6 +102,9 @@ router.put("/:id/update", ensureLoggedIn, function (req, res) {
     db.NonProfitProfile.update({
         companyName: req.body.companyName,
         description: req.body.description,
+        email: req.body.email,
+        phone: req.body.phone,
+        location: req.body.location
     }, {
             where: {
                 id: req.params.id

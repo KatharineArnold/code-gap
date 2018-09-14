@@ -39,8 +39,10 @@ router.post('/create', ensureLoggedIn, function (req, res, next) {
     db.User.findOne({ where: { email: req.user._json.email } }).then(user => {
         const profileData = {
             UserId: user.id,
+            bio: req.body.bio,
             location: req.body.location,
-            availability: req.body.hours
+            availability: req.body.hours,
+            technologies: req.body.technologies
         }
         db.VolunteerProfile.create(profileData).then(function (dbVolunteerProfile) {
             res.json(dbVolunteerProfile);
@@ -72,6 +74,7 @@ router.get('/:id/update', ensureLoggedIn, function (req, res, next) {
 // PUT route for updating volunteers
 router.put("/:id/update", ensureLoggedIn, function (req, res) {
     db.VolunteerProfile.update({
+        bio: req.body.bio,
         location: req.body.location,
         availability: req.body.hours
     }, {

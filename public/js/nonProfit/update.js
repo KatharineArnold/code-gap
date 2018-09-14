@@ -2,6 +2,9 @@ $(document).ready(function () {
     // Getting references to the name input
     let orgNameInput = $("#orgName");
     let orgDescriptionInput = $("#orgDescription");
+    let orgEmailInput = $("#orgEmail");
+    let orgPhoneInput = $("#orgPhone");
+    let orgLocationInput = $("#orgLocation");
     let nonProfitProfileId = $("#orgForm").data("non_profit_profile_id");
 
     // Adding event listeners to the form to create a new object
@@ -13,7 +16,10 @@ $(document).ready(function () {
 
         const profileData = {
             companyName: orgNameInput.val().trim(),
-            description: orgDescriptionInput.val().trim()
+            description: orgDescriptionInput.val().trim(),
+            phone: orgPhoneInput.val(),
+            email: orgEmailInput.val(),
+            Location: orgLocationInput.val().trim()
         }
         $.ajax({
             method: "PUT",

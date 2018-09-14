@@ -10,16 +10,19 @@
     <div class="row">
         {{#each volunteers}}
             <div class="col-md-4">
-                <div class="card mb-3">
+                <div class="card volunteerCard mb-3">
                     <h3 class="card-header">{{this.User.name}}</h3>
                     <div class="card-body">
                         <img style="height: 200px; width: 300px; display: block;" src="{{this.User.image}}" alt="Card image">
                     </div>
                     <div class="card-body">
+                        <p class="card-text"><span class="cardTitle">Bio:</span> {{this.bio}}</p>
                         <p class="card-text"><span class="cardTitle">Email:</span> {{this.User.email}}</p>
                         <p class="card-text"><span class="cardTitle">Location:</span> {{this.location}}</p>
                         <p class="card-text"><span class="cardTitle">Availability:</span> {{this.availability}} hours
                             per week</p>
+                        <p class="card-text"><span class="cardTitle">Technologies:</span> {{technologies}}</p>
+
                         {{!-- <a id="update-volunteer" href="#" role="button" class="btn btn-primary">Update Profile</a>
                         <a id="delete-volunteer" href="#" role="button" class="btn btn-success">Delete Profile</a> --}}
                     </div>
