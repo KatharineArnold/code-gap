@@ -76,7 +76,8 @@ router.put("/:id/update", ensureLoggedIn, function (req, res) {
     db.VolunteerProfile.update({
         bio: req.body.bio,
         location: req.body.location,
-        availability: req.body.hours
+        availability: req.body.hours,
+        technologies: req.body.technologies
     }, {
             where: {
                 id: req.params.id
