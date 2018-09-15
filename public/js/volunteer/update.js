@@ -5,6 +5,14 @@ $(document).ready(function () {
     let bioInput = $("#bio");
     let techInput = $("#techSelect");
     let volunteerProfileId = $("#volunteerForm").data("volunteer_profile_id");
+    let previousTechnologies = techInput.data("previous_technologies").split(', ');
+
+    techInput.find("option").each(function () {
+        let option = $(this);
+        if (previousTechnologies.includes(option.val())) {
+            option.prop("selected", true);
+        }
+    });
 
     // Adding event listeners to the form to create a new object
     $(document).on("submit", "#volunteerForm", handleVolunteerFormSubmit);
