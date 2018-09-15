@@ -19,7 +19,7 @@ $(document).ready(function () {
             description: orgDescriptionInput.val().trim(),
             phone: orgPhoneInput.val(),
             email: orgEmailInput.val(),
-            Location: orgLocationInput.val().trim()
+            location: orgLocationInput.val().trim()
         }
         $.ajax({
             method: "PUT",

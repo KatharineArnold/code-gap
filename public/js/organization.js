@@ -20,7 +20,7 @@ $(document).ready(function () {
             description: orgDescriptionInput.val().trim(),
             phone: orgPhoneInput.val().trim(),
             email: orgEmailInput.val().trim(),
-            Location: orgLocationInput.val().trim()
+            location: orgLocationInput.val().trim()
         }
         // /this is posting to route
         $.post("/non-profit/create", orgProfileData).then(function (orgProfile) {
