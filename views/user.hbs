@@ -1,6 +1,3 @@
-{{!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-gJWVjz180MvwCrGGkC4xE5FjhWkTxHIR/+GgT8j2B3KKMgh6waEjPgzzh7lL7JZT"
-    crossorigin="anonymous"> --}}
-
 <div class="container userContainer">
     <div class="row">
         <div class="col">
@@ -9,7 +6,6 @@
     </div>
 
     <div class="row">
-        {{!-- can we add if nonProfitProfile too?? --}}
         <div class="col-md-4 offset-md-4">
             <div class="card mb-3">
                 <div class="card-body">
@@ -20,7 +16,8 @@
                         <p class="card-text"><span class="cardTitle">Bio:</span> {{volunteerProfile.bio}}</p>
                         <p class="card-text"><span class="cardTitle">Email:</span> {{user.email}}</p>
                         <p class="card-text"><span class="cardTitle">Location:</span> {{volunteerProfile.location}}</p>
-                        <p class="card-text"><span class="cardTitle">Technologies:</span> {{volunteerProfile.technologies}}</p>
+                        <p class="card-text"><span class="cardTitle">Technologies:</span>
+                            {{volunteerProfile.technologies}}</p>
                         <p class="card-text"><span class="cardTitle">Availability:</span>
                             {{volunteerProfile.availability}} hours per week</p>
                         <a id="update-volunteer" href="volunteer/{{volunteerProfile.id}}/update" role="button" class="btn btn-primary">Update
@@ -35,7 +32,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="row">

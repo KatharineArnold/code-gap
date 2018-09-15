@@ -3,7 +3,6 @@
         <h1 class="projectTitle">Open Projects</h1>
     </div>
 
-
     <div class="row">
         {{#each projects}}
             <div class="col-md-4">
@@ -18,9 +17,6 @@
                         <p class="card-text"><span class="cardTitle">Description:</span> {{this.projectDescription}}</p>
                     </div>
 
-                    {{!-- <div class="card-body">
-                        <p class="card-text"><span class="cardTitle">Technologies:</span></p>
-                    </div> --}}
                     <a id="update-project" href="/projects/{{id}}/update" role="button" class="btn btn-primary">Update</a>
                     <button role="button" class="btn btn-success projectDeleteButton" data-project_id="{{id}}">
                         Delete

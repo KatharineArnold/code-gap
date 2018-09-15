@@ -12,10 +12,7 @@ $(document).ready(function () {
     // A function to handle what happens when the form is submitted to create a new Author
     function handleProjectFormSubmit(event) {
         event.preventDefault();
-        // Don't do anything if the name field hasn't been filled out
-        // if (!locationInput.val().trim().trim()) {
-        //     return;
-        // }
+
 
         const projectProfileData = {
             projectName: projectNameInput.val().trim(),

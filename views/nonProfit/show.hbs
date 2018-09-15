@@ -2,8 +2,6 @@
     <div class="row">
         <h1 class="userTitle">{{nonProfitProfile.companyName}} Projects</h1>
     </div>
-
-
     <div class="row">
         {{#each nonProfitProfile.Projects}}
             <div class="col-md-4">
@@ -14,10 +12,6 @@
                     <div class="card-body">
                         <p class="card-text"><span class="cardTitle">Description:</span> {{projectDescription}}</p>
                     </div>
-                    {{!-- <div class="card-body">
-                        <p class="card-text"><span class="cardTitle">Technologies:</span></p>
-                    </div> --}}
-
                 </div>
             </div>
         {{/each}}
