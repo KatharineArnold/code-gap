@@ -26,7 +26,15 @@ router.get('/list', function (req, res, next) {
 
 //get the form
 router.get('/add-project', ensureLoggedIn, function (req, res, next) {
-    res.render('addProject', { nonProfitProfileId: req.query.nonProfitProfileId });
+    db.NonProfitProfile.findOne({
+        where: { id: req.query.nonProfitProfileId }
+    }).then(function (nonProfitProfile) {
+        res.render('addProject', {
+            nonProfitProfileId: req.query.nonProfitProfileId,
+            nonProfitProfile: nonProfitProfile
+        });
+
+    });
 });
 
 //adding project to database
